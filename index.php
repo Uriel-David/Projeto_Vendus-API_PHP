@@ -44,7 +44,7 @@
                 for($i = 0; $i < count($documents); $i++) {
                     if($FILTER_TYPE == $documents[$i]["type"] || $FILTER_TYPE == "ALL") {
                         echo '<tr>'.
-                                '<td>'.$documents[$i]["id"].'</td>'.
+                                '<td>'.'<a href="./detailPage.php?idDocument='.$documents[$i]["id"].'">'.$documents[$i]["id"].'</a>'.'</td>'.
                                 '<td>'.$documents[$i]["number"].'</td>'.
                                 '<td>'.$documents[$i]["type"].'</td>'.
                             '</tr>';
