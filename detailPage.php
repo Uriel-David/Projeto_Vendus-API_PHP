@@ -1,5 +1,6 @@
 <?php
   include("./php/detailDocument.php");
+  include("./php/downloadPdfDocument.php");
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +80,6 @@
       </tbody>
   </table>
 
-  <a href="index.php">Back</a>
+  <a href="<?php echo $urlPDF; ?>" target="_blank">PDF Document</a> | <a href="index.php">Back</a>
 </body>
 </html>
