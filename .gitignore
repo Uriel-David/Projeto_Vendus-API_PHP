@@ -3,7 +3,3 @@
 
 # vendor
 vendor/
-
-# composer
-composer.json
-composer.lock
