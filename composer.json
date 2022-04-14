@@ -1,0 +1,5 @@
+{
+    "require": {
+        "vendus/vendus-sdk-php": "^1.0"
+    }
+}
