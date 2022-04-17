@@ -1,6 +1,8 @@
 <?php
-  include("./php/detailDocument.php");
-  include("./php/downloadPdfDocument.php");
+    include("./php/connectionAPI.php");
+    $ConnectAPI = new ConnectAPI("getDocument");
+    $resultQuery = $ConnectAPI->resultQuery;
+    $urlPDF = $ConnectAPI->urlPDF;
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +29,10 @@
       <tbody>
           <?php
             echo '<tr>'.
-                    '<td>'.$detailDocument["id"].'</td>'.
-                    '<td>'.$detailDocument["number"].'</td>'.
-                    '<td>'.$detailDocument["client"]["name"].'</td>'.
-                    '<td>'.$detailDocument["client"]["fiscal_id"].'</td>'.
+                    '<td>'.$resultQuery["id"].'</td>'.
+                    '<td>'.$resultQuery["number"].'</td>'.
+                    '<td>'.$resultQuery["client"]["name"].'</td>'.
+                    '<td>'.$resultQuery["client"]["fiscal_id"].'</td>'.
                 '</tr>';
           ?>
       </tbody>
@@ -50,11 +52,11 @@
       <tbody>
           <?php
             echo '<tr>'.
-                    '<td>'.$detailDocument["items"][0]["title"].'</td>'.
-                    '<td>'.$detailDocument["items"][0]["reference_document"].'</td>'.
-                    '<td>'.$detailDocument["items"][0]["stock_control"].'</td>'.
-                    '<td>'.$detailDocument["items"][0]["amounts"]["net_total"].'</td>'.
-                    '<td>'.$detailDocument["items"][0]["amounts"]["gross_total"].'</td>'.
+                    '<td>'.$resultQuery["items"][0]["title"].'</td>'.
+                    '<td>'.$resultQuery["items"][0]["reference_document"].'</td>'.
+                    '<td>'.$resultQuery["items"][0]["stock_control"].'</td>'.
+                    '<td>'.$resultQuery["items"][0]["amounts"]["net_total"].'</td>'.
+                    '<td>'.$resultQuery["items"][0]["amounts"]["gross_total"].'</td>'.
                 '</tr>';
           ?>
       </tbody>
@@ -72,9 +74,9 @@
       <tbody>
           <?php
             echo '<tr>'.
-                    '<td>'.$detailDocument["payments"][0]["id"].'</td>'.
-                    '<td>'.$detailDocument["payments"][0]["title"].'</td>'.
-                    '<td>'.$detailDocument["payments"][0]["amount"].'</td>'.
+                    '<td>'.$resultQuery["payments"][0]["id"].'</td>'.
+                    '<td>'.$resultQuery["payments"][0]["title"].'</td>'.
+                    '<td>'.$resultQuery["payments"][0]["amount"].'</td>'.
                 '</tr>';
           ?>
       </tbody>

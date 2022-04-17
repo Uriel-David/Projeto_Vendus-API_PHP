@@ -1,5 +1,7 @@
 <?php
-    include("./php/search.php");
+    include("./php/connectionAPI.php");
+    $ConnectAPI = new ConnectAPI("getSearchQuery");
+    $resultQuery = $ConnectAPI->resultQuery;
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +30,12 @@
         </thead>
         <tbody>
             <?php
-                for($i = 0; $i < count($searchQuery); $i++) {
-                    if($SEARCH_QUERY) {
-                        echo '<tr>'.
-                                '<td>'.$searchQuery[$i]["id"].'</td>'.
-                                '<td>'.$searchQuery[$i]["number"].'</td>'.
-                                '<td>'.$searchQuery[$i]["type"].'</td>'.
-                            '</tr>';
-                    }
+                for($i = 0; $i < count($resultQuery); $i++) {
+                    echo '<tr>'.
+                            '<td>'.$resultQuery[$i]["id"].'</td>'.
+                            '<td>'.$resultQuery[$i]["number"].'</td>'.
+                            '<td>'.$resultQuery[$i]["type"].'</td>'.
+                        '</tr>';
                 }
             ?>
         </tbody>

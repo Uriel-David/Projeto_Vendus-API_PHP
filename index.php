@@ -1,6 +1,5 @@
 <?php
-    include("./php/search.php");
-    include("./php/conectionAPI.php");
+    include("./php/conectionSDK.php");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@
         <tbody>
             <?php
                 for($i = 0; $i < count($documents); $i++) {
-                    if($FILTER_TYPE == $documents[$i]["type"] || $FILTER_TYPE == "ALL") {
+                    if(filterTypeDocument() == $documents[$i]["type"] || filterTypeDocument() == "ALL") {
                         echo '<tr>'.
                                 '<td>'.'<a href="./detailPage.php?idDocument='.$documents[$i]["id"].'">'.$documents[$i]["id"].'</a>'.'</td>'.
                                 '<td>'.$documents[$i]["number"].'</td>'.
